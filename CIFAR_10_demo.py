@@ -1,9 +1,9 @@
-import DPSH_CIFAR_10 as dpsh
+import CIFAR_10 as dpsh
 import pickle
 from datetime import datetime
 import torch
 
-def DPSH_CIFAR_10_demo():
+def CIFAR_10_demo():
     lamda = 10
     param = {}
     param['lambda'] = lamda
@@ -13,11 +13,11 @@ def DPSH_CIFAR_10_demo():
     bits = [12, 24, 32, 48]
     # bits = [1000]
     for bit in bits:
-        filename = 'log/DPSH_' + str(bit) + 'bits_CIFAR-10' + '_' + datetime.now().strftime("%y-%m-%d-%H-%M-%S") + '.pkl'
+        filename = 'log/AIHN' + str(bit) + 'bits_CIFAR-10' + '_' + datetime.now().strftime("%y-%m-%d-%H-%M-%S") + '.pkl'
         param['filename'] = filename
         print('---------------------------------------')
         print('[#bit: %3d]' % (bit))
-        result = dpsh.DPSH_algo(bit, param, gpu_ind)
+        result = dpsh.algo(bit, param, gpu_ind)
         print('[MAP: %3.5f]' % (result['map']))
         print('---------------------------------------')
         fp = open(result['filename'], 'wb')
@@ -25,4 +25,4 @@ def DPSH_CIFAR_10_demo():
         fp.close()
 
 if __name__=="__main__":
-    DPSH_CIFAR_10_demo()
+    CIFAR_10_demo()
