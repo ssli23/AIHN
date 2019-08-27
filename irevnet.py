@@ -1,11 +1,3 @@
-"""
-Code for "i-RevNet: Deep Invertible Networks"
-https://openreview.net/pdf?id=HJsjkMb0Z
-ICLR, 2018
-
-(c) Joern-Henrik Jacobsen, 2018
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
